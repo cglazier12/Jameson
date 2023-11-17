@@ -1,0 +1,31 @@
+# Exclude Libraries
+/Library/
+
+# Exclude all temporary files and folders
+/Temp/
+/Logs/
+/Obj/
+/Built/
+/UserSettings/
+
+# Exclude all files that may contain sensitive or personal information
+/*.csproj
+/*.sln
+/*.userprefs
+/*.user
+
+# Exclude specific plugin/editor directories if they are not needed
+# /Assets/Plugins/...
+
+# Exclude specific assets that should not be version controlled
+# /Assets/SomeLargeAssetFolder/
+
+# Exclude auto-generated files
+/*.pidb.meta
+/*.pdb.meta
+
+# Exclude builds
+/Builds/
+
+# Exclude JetBrains Rider specific directory
+/.idea/
