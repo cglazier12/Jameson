@@ -1,4 +1,5 @@
-using Entities;
+using Controllers;
+using Controllers.Characters;
 using UnityEngine;
 
 namespace Controllers

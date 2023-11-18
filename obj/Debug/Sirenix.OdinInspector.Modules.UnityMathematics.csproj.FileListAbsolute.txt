@@ -439,5 +439,4 @@
 /Users/christopherglazier/Jameson/obj/Debug/Sirenix.OdinInspector.Modules.UnityMathematics.csproj.CopyComplete
 /Users/christopherglazier/Jameson/obj/Debug/Sirenix.OdinInspector.Modules.UnityMathematics.dll
 /Users/christopherglazier/Jameson/obj/Debug/Sirenix.OdinInspector.Modules.UnityMathematics.pdb
-/Users/christopherglazier/Jameson/Temp/Bin/Debug/Sirenix.OdinInspector.Modules.UnityMathematics/Unity.VisualScripting.YamlDotNet.dll.mdb
-/Users/christopherglazier/Jameson/Temp/Bin/Debug/Sirenix.OdinInspector.Modules.UnityMathematics/Unity.VisualScripting.IonicZip.dll.mdb
+/Users/christopherglazier/Jameson/Temp/Bin/Debug/Sirenix.OdinInspector.Modules.UnityMathematics/System.Configuration.dll
