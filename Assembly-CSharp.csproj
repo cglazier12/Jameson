@@ -46,10 +46,13 @@
      <Compile Include="Assets/Sprites/Player/Demo/GrabableLedge.cs" />
      <Compile Include="Assets/Scripts/Entities/Player.cs" />
      <Compile Include="Assets/Sprites/Player/Demo/PrototypeHero.cs" />
-     <Compile Include="Assets/Scripts/Actions/BasicMovement.cs" />
+     <Compile Include="Assets\Scripts\Controllers\BasicMovement.cs" />
      <Compile Include="Assets/Sprites/Player/Demo/Dust_DestroyEvent.cs" />
      <Compile Include="Assets/Sprites/Player/Demo/PrototypeHeroAnimEvents.cs" />
      <Compile Include="Assets/Sprites/Player/Demo/AudioManager_PrototypeHero.cs" />
+     <Compile Include="Assets\Scripts\Controllers\DamageController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\MovementController.cs" />
+     <Compile Include="Assets\Scripts\Entities\Character.cs" />
      <Folder Include="Assets" />
      <Folder Include="Assets/Sprites/Player/Audio" />
      <Folder Include="Assets/Animations" />
@@ -60,12 +63,10 @@
      <Folder Include="Assets/Sprites/Player/ColorSwap" />
      <Folder Include="Assets/Sprites/Player/Environment" />
      <Folder Include="Assets/Sprites/Player/Demo" />
-     <Folder Include="Assets/Scripts/Entities" />
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground" />
      <None Include="Assets/Cainos/Pixel Art Platformer - Village Props/Changelog.txt" />
      <Folder Include="Assets/Sprites/Player" />
      <Folder Include="Assets/Sprites/Player/Animations/Effects" />
-     <Folder Include="Assets/Scripts/Actions" />
      <Folder Include="Assets/Settings/Scenes" />
      <Folder Include="Assets/Sprites" />
      <Folder Include="Assets/Sprites/Player/Animations/Prototype Hero" />

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Actions
+namespace Controllers
 {
     public class BasicMovement : MonoBehaviour
     {
@@ -13,7 +13,8 @@ namespace Actions
         private bool isGrounded;
         private bool isJumping;
         private float xAxisInput;
-
+        
+        
         public bool IsMoving => xAxisInput != 0;
         public bool IsJumping => isJumping;
 
