@@ -1,18 +1,23 @@
 using Controllers;
 using UnityEngine;
 using Controllers.Characters;
+using Sirenix.OdinInspector;
 
 namespace Entities
 {
     public class Player : Character
     {
         [SerializeField] private float jumpForce = 7f;
-        private bool isGrounded;
+        [SerializeField] private bool isGrounded;
         [SerializeField] private bool shouldJump; // Flag to indicate the jump command was given
         [SerializeField] private float horizontal;
         
+        [InfoBox("Ground Check")]
+        [SerializeField] private LayerMask groundLayer; // Set this in the Inspector
+        [SerializeField] private Transform groundCheck; // Assign a child GameObject positioned at the feet
+        [SerializeField] private float groundCheckRadius = 2; // Radius of the overlap circle to determine if grounded
         
-        protected virtual void Awake()
+        protected override void Awake()
         {
             // Initialize controllers
             movementController = GetComponent<MovementController>();
@@ -42,15 +47,22 @@ namespace Entities
             // Animations can be handled after input is processed
             HandleAnimations(horizontal); // Ensure 'horizontal' is a class-level variable
         }
-
+        
         private void FixedUpdate()
         {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    
+            // Update the drag on the movement controller based on grounded state
+            movementController.UpdateDrag(isGrounded);
+
             // Perform jump in FixedUpdate if the flag is set
-            if (shouldJump)
+            if (shouldJump && isGrounded)
             {
-                Jump();
-                shouldJump = false; // Reset the jump command after executing it
+                movementController.Jump(jumpForce);
+                shouldJump = false;
+                animator.ResetTrigger("Jump");
             }
+
         }
 
         private void HandleInput()
@@ -72,16 +84,7 @@ namespace Entities
                 shouldJump = true;
             }
         }
-
-
-        // The Jump method is now only responsible for applying the force
-        private void Jump()
-        {
-            // Add a vertical force to the rigidbody to make the character jump
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            isGrounded = false;
-        }
-
+        
         protected override void TakeDamage(float amount)
         {
             // Player-specific damage handling
@@ -99,16 +102,45 @@ namespace Entities
         // Handle animations based on the player's current action
         private void HandleAnimations(float horizontalInput)
         {
-            // Animation handling code...
-        }
+            // Set the Speed parameter based on movement
+            animator.SetFloat("Run", Mathf.Abs(horizontalInput));
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            // Ground check to enable jumping again
-            if (collision.gameObject.CompareTag("Ground")) // Make sure this matches the exact spelling of the tag you created
+            // Set the IsGrounded parameter based on the grounded state
+            animator.SetBool("IsGrounded", isGrounded);
+
+            // Handle jump animation
+            if (shouldJump)
             {
-                isGrounded = true;
+                animator.SetTrigger("Jump");
+            }
+
+            // Optional: handle direction facing
+            if (horizontalInput > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1); // Face right
+            }
+            else if (horizontalInput < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1); // Face left
+            }
+
+            // Add more parameters as needed for crouching, etc.
+        }
+        
+        
+        /*
+         *  ===== GIZMOS =====
+         */
+        
+        void OnDrawGizmos()
+        {
+            if (groundCheck != null)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
             }
         }
+
+
     }
 }
