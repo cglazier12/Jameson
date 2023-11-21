@@ -18,11 +18,6 @@ namespace Controllers
             originalLinearDrag = rb.drag;
         }
 
-        public void UpdateDrag(bool isGrounded)
-        {
-            rb.drag = isGrounded ? originalLinearDrag : airLinearDrag;
-        }
-        
         public void HandleMovement(Vector2 direction)
         {
             

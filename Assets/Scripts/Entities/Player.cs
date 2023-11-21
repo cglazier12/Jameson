@@ -51,16 +51,13 @@ namespace Entities
         private void FixedUpdate()
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-    
-            // Update the drag on the movement controller based on grounded state
-            movementController.UpdateDrag(isGrounded);
 
             // Perform jump in FixedUpdate if the flag is set
             if (shouldJump && isGrounded)
             {
                 movementController.Jump(jumpForce);
                 shouldJump = false;
-                animator.ResetTrigger("Jump");
+                //animator.ResetTrigger("Jump");
             }
 
         }
@@ -102,16 +99,10 @@ namespace Entities
         // Handle animations based on the player's current action
         private void HandleAnimations(float horizontalInput)
         {
-            // Set the Speed parameter based on movement
-            animator.SetFloat("Run", Mathf.Abs(horizontalInput));
-
-            // Set the IsGrounded parameter based on the grounded state
-            animator.SetBool("IsGrounded", isGrounded);
-
             // Handle jump animation
             if (shouldJump)
             {
-                animator.SetTrigger("Jump");
+                animator.SetTrigger("jump");
             }
 
             // Optional: handle direction facing
