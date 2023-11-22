@@ -94,12 +94,15 @@
      <Compile Include="Assets/Sprites/Player/Demo/AudioManager_PrototypeHero.cs" />
      <Compile Include="Assets/Cainos/Third Party/Lucid Editor/Runtime/Attributes/FoldoutGroupAttribute.cs" />
      <Compile Include="Assets/Cainos/Third Party/Lucid Editor/Runtime/Attributes/DisableLucidEditorAttribute.cs" />
+     <Compile Include="Assets/Scripts/Controllers/Camera/CameraController.cs" />
+     <Compile Include="Assets/Scripts/Controllers/Levels/SimpleLevelLoader.cs" />
      <Folder Include="Assets" />
      <None Include="Assets/Cainos/Third Party/Lucid Editor/License.txt" />
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Dungeon/Animation/Chest 02" />
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Dungeon" />
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Dungeon/Shader" />
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Dungeon/Tileset Pallete/TP Dungeon Ground" />
+     <Folder Include="Assets/Scripts/Controllers/Levels" />
      <Folder Include="Assets/Sprites/Player/Audio" />
      <Folder Include="Assets/Animations" />
      <Folder Include="Assets/Sprites/Player/Animations" />
@@ -152,6 +155,7 @@
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Dungeon/Material/FX" />
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Dungeon/Animation" />
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Dungeon/Texture" />
+     <Folder Include="Assets/Scripts/Controllers/Camera" />
      <Folder Include="Assets/Cainos/Pixel Art Platformer - Village Props/Prefab" />
      <Folder Include="Assets/Cainos/Common/Texture" />
      <None Include="Assets/Cainos/Pixel Art Platformer - Dungeon/Changelog.txt" />
